@@ -30,5 +30,21 @@ class Solution:
             jump_count += 1
         
         return jump_count + 1
+
+
+
+    # Dynamic Programming
+    def jump(self, A):
+        # write your code here
+        
+        dp = [sys.maxsize for i in range(len(A))]
+        dp[0] = 0
+        
+        for i in range(len(A)):
+            for j in range(i):
+                if j + A[j] >= i:
+                    dp[i] = min(dp[i], dp[j] + 1)
+                    
+        return dp[len(A) - 1]
             
         
