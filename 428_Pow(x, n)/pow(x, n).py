@@ -63,16 +63,11 @@ class Solution:
         
         return res
 
-
 class Solution:
     """
     @param x {float}: the base number
     @param n {int}: the power number
     @return {float}: the result
-    """
-
-    """
-    How to simplify the code
     """
     def myPow(self, x, n):
         # write your code here
@@ -88,9 +83,9 @@ class Solution:
         if x < 0:
             x = x if n % 2 == 0 else -x
             
-        divide_res = self.myPow(x, n // 2)
+        tmp_res = self.myPow(x, n // 2)
         
         if n % 2 == 0:
-            return divide_res * divide_res
+            return tmp_res * tmp_res
         
-        return divide_res * divide_res * x
+        return tmp_res * tmp_res * x
