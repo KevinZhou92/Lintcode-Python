@@ -1,3 +1,10 @@
+"""
+eat
+nowhere
+map = {}
+for each string:
+    sort string and check sorted in map, if in, put it in the list, if not create a new list
+"""
 class Solution:
     """
     @param strs: the given array of strings
@@ -5,13 +12,6 @@ class Solution:
     """
     def groupAnagrams(self, strs):
         # write your code here
-        """
-        eat
-        nowhere
-        map = {}
-        for each string:
-            sort string and check sorted in map, if in, put it in the list, if not create a new list
-        """
         
         if not strs:
             return []

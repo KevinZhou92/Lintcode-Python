@@ -1,6 +1,38 @@
 # DFS + Memorization [Done]
 
 # TODO DP solution
+"""
+DFS + Memorization
+a
+a
+
+a
+?
+
+a
+b*
+
+if i == len(s) and j == len(p):
+    return True
+
+if i == len(s):
+    while j < len(p):
+        if * or ?
+        J += 1
+    if j == len(p):
+    return true
+    return False
+if j == len(p): 
+    return false
+
+1. if s[i] == p[j] and both are regular chars: i + 1, j + 1
+2. s[i] is regular char, p[j] is ?: i + 1, j + 1
+3. s[i] is regular char, p[j] is *: 
+    if s[i - 1] == p[j - 1] and s[i - 1] == s[i] : i + 1, j
+    if [s - 1] != s[i]: i + 1, j + 1
+
+
+"""
 class Solution:
     """
     @param s: A string 
@@ -8,40 +40,7 @@ class Solution:
     @return: is Match?
     """
     def isMatch(self, s, p):
-        # write your code here
-        
-        """
-        a
-        a
-        
-        a
-        ?
-        
-        a
-        b*
-        
-        if i == len(s) and j == len(p):
-            return True
-        
-        if i == len(s):
-            while j < len(p):
-             if * or ?
-              J += 1
-            if j == len(p):
-            return true
-            return False
-        if j == len(p): 
-            return false
-        
-        1. if s[i] == p[j] and both are regular chars: i + 1, j + 1
-        2. s[i] is regular char, p[j] is ?: i + 1, j + 1
-        3. s[i] is regular char, p[j] is *: 
-            if s[i - 1] == p[j - 1] and s[i - 1] == s[i] : i + 1, j
-            if [s - 1] != s[i]: i + 1, j + 1
-        
-        
-        """
-        
+        # write your code here    
         if not p and not s:
             return True
             

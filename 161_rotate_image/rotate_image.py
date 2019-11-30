@@ -1,3 +1,28 @@
+"""
+1 2   --> 3 1
+3 4       4 2
+
+1 2 3     7 4 1  
+4 5 6  -->8 5 2
+7 8 9     9 6 3
+
+1 2 3 4   13 9 5 1
+5 6 7 8   14 10 6 2
+9 101112  15 11 7 3
+13141516  16 12 8 4
+
+0, 0 -> 0, 2 
+0, 1 -> 1, 2
+0, 2 -> 2,  0
+1, 0 -> 0, 1
+1, 1 -> 1, 1
+1, 2 -> 2, 1
+create a new array
+copy over elem into new pos
+every elem will move
+new row = old_col
+new col = length - 1 - old_row
+"""
 class Solution:
     """
     @param matrix: a lists of integers
@@ -5,32 +30,6 @@ class Solution:
     """
     def rotate(self, matrix):
         # write your code here
-        """
-        1 2   --> 3 1
-        3 4       4 2
-        
-        1 2 3     7 4 1  
-        4 5 6  -->8 5 2
-        7 8 9     9 6 3
-        
-        1 2 3 4   13 9 5 1
-        5 6 7 8   14 10 6 2
-        9 101112  15 11 7 3
-        13141516  16 12 8 4
-        
-        0, 0 -> 0, 2 
-        0, 1 -> 1, 2
-        0, 2 -> 2,  0
-        1, 0 -> 0, 1
-        1, 1 -> 1, 1
-        1, 2 -> 2, 1
-        create a new array
-        copy over elem into new pos
-        every elem will move
-        new row = old_col
-        new col = length - 1 - old_row
-        """
-        
         if not matrix:
             return
         

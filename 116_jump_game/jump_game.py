@@ -1,3 +1,10 @@
+"""
+=> Greedy
+2, 3, 1, 1, 4
+at each point, check the max_right that we can each, as long as we can reach 
+the point, we keep updating the max_right that we can reach
+
+"""    
 class Solution:
     """
     @param A: A list of integers
@@ -8,14 +15,6 @@ class Solution:
         if not A:
             return False
             
-            
-        """
-        => Greedy
-        2, 3, 1, 1, 4
-        at each point, check the max_right that we can each, as long as we can reach 
-        the point, we keep updating the max_right that we can reach
-        
-        """    
         max_right = A[0]
         for i in range(len(A)):
             if i <= max_right:
@@ -25,16 +24,17 @@ class Solution:
                 return True
         
         return False
-        
+
+"""
+=> Dynamic programming
+
+2 2 1 1 4
+
+dp[i] -> represent can jump to j 
+dp[i] = if dp[j] for j < i and j + A[j] >= A[i]
+""" 
     def canJump2(self, A):
-        """
-        => Dynamic programming
         
-        2 2 1 1 4
-        
-        dp[i] -> represent can jump to j 
-        dp[i] = if dp[j] for j < i and j + A[j] >= A[i]
-        """
         
         dp = [0 for i in range(len(A))]
         dp[0] = 1
