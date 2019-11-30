@@ -125,3 +125,136 @@ class Solution:
                 
         return True
         
+
+"""
+Version 3
+Top-Down DFS
+We don't need to store an entire board, we just need to store the information of Q and reconstruct the board once we are done
+
+We use a list to record the queen's col pos in each row, it will be a list like
+[2, 1, 0] 
+ 0  1  2
+
+"""
+import copy
+class Solution:
+    """
+    @param: n: The number of queens
+    @return: All distinct solutions
+    """
+    def solveNQueens(self, n):
+        # write your code here
+        if not n:
+            return []
+        
+        self.pos_lists = []
+        self.dfs(n, 0, [])
+        res = []
+        for pos_list in self.pos_lists:
+            res.append(self.draw_board(pos_list, n))
+        
+        return res
+        
+    def dfs(self, n, placed, pos_list):
+        if n == placed:
+            self.pos_lists.append(copy.copy(pos_list))
+            
+        for i in range(n):
+            if self.valid_pos(i, pos_list):
+                pos_list.append(i)
+                self.dfs(n, placed + 1, pos_list)
+                pos_list.pop()
+                
+    def valid_pos(self, col_index, pos_list):
+        # vertical
+        if col_index in pos_list:
+            return False
+        
+        new_row = len(pos_list)   
+        new_col = col_index
+        for row_index in range(len(pos_list)):
+            if abs(row_index - new_row) == abs(pos_list[row_index] - new_col):
+                return False
+            
+        return True
+    
+    def draw_board(self, pos_list, n):
+        res = []
+        
+        for col_index in pos_list:
+            tmp_res = ['.' if i != col_index else 'Q' for i in range(n) ]
+            tmp_res = ''.join(tmp_res)
+            res.append(tmp_res)
+            
+        return res
+        
+"""
+Version 4
+Bottom-Up DFS
+We don't need to store an entire board, we just need to store the information of Q and reconstruct the board once we are done
+
+We use a list to record the queen's col pos in each row, it will be a list like
+[2, 1, 0] 
+ 0  1  2
+
+"""
+import copy
+class Solution:
+    """
+    @param: n: The number of queens
+    @return: All distinct solutions
+    """
+    def solveNQueens(self, n):
+        # write your code here
+        if not n:
+            return []
+        
+        self.pos_lists = []
+        self.pos_lists = self.dfs(n, 0, [])
+        res = []
+        for pos_list in self.pos_lists:
+            res.append(self.draw_board(pos_list, n))
+        
+        return res
+        
+    def dfs(self, n, placed, pos_list):
+        results = []
+        
+        if n == placed:
+            results.append(copy.copy(pos_list))
+            return results
+            
+        for i in range(n):
+            if self.valid_pos(i, pos_list):
+                pos_list.append(i)
+                tmp_res = self.dfs(n, placed + 1, pos_list)
+                if tmp_res: 
+                    print(tmp_res)
+                    for res in tmp_res:
+                        results.append(res)
+                pos_list.pop()
+        
+        return results
+                
+    def valid_pos(self, col_index, pos_list):
+        # vertical
+        if col_index in pos_list:
+            return False
+        
+        new_row = len(pos_list)   
+        new_col = col_index
+        for row_index in range(len(pos_list)):
+            if abs(row_index - new_row) == abs(pos_list[row_index] - new_col):
+                return False
+            
+        return True
+    
+    def draw_board(self, pos_list, n):
+        res = []
+        
+        for col_index in pos_list:
+            tmp_res = ['.' if i != col_index else 'Q' for i in range(n) ]
+            tmp_res = ''.join(tmp_res)
+            res.append(tmp_res)
+            
+        return res
