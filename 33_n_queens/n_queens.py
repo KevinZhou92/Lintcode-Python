@@ -61,12 +61,12 @@ class Solution:
         return True
                   
 """
-    BFS Non-recursive
-    
-    enque board into queue
-    every loop add a queen to all board in queue
-    get the result
-    """ 
+- BFS Non-recursive
+
+enque board into queue
+every loop add a queen to all board in queue
+get the result
+""" 
 from collections import deque
 import copy
 class Solution:
@@ -127,8 +127,7 @@ class Solution:
         
 
 """
-Version 3
-Top-Down DFS
+- Top-Down DFS
 We don't need to store an entire board, we just need to store the information of Q and reconstruct the board once we are done
 
 We use a list to record the queen's col pos in each row, it will be a list like
@@ -189,8 +188,7 @@ class Solution:
         return res
         
 """
-Version 4
-Bottom-Up DFS
+- Bottom-Up DFS
 We don't need to store an entire board, we just need to store the information of Q and reconstruct the board once we are done
 
 We use a list to record the queen's col pos in each row, it will be a list like
