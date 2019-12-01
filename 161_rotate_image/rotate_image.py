@@ -53,7 +53,8 @@ class Solution:
         # write your code here
         if not matrix:
             return
-    
+
+ class Solution2:   
     def rotate(self, matrix):    
     """
     1 2 3 4      13 9  5 1

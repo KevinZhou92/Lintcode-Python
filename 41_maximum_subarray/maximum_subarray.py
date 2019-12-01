@@ -1,5 +1,5 @@
 """
-- Greedy Solution
+=> Greedy Solution
 [−2,2,−3,4,−1,2,1,−5,3]
 start for each number, expanding to right
 if tmp_res + cur_num <= cur_num:
@@ -31,12 +31,12 @@ class Solution:
         return res
     
 """
-- Prefix Sum
+=> Prefix Sum
 [−2,2,−3,4,−1,2,1,−5,3]
  -2,0,-3,1,0, 2,3,-2,1 
 
 """
-class Solution:
+class Solution2:
     """
     @param nums: A list of integers
     @return: A integer indicate the sum of max subarray

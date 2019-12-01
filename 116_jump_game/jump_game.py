@@ -32,8 +32,9 @@ class Solution:
 
 dp[i] -> represent can jump to j 
 dp[i] = if dp[j] for j < i and j + A[j] >= A[i]
-""" 
-    def canJump2(self, A):
+"""
+class Solution2: 
+    def canJump(self, A):
         
         
         dp = [0 for i in range(len(A))]

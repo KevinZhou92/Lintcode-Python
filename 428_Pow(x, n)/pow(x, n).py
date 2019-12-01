@@ -63,7 +63,7 @@ class Solution:
         
         return res
 
-class Solution:
+class Solution2:
     """
     @param x {float}: the base number
     @param n {int}: the power number
@@ -92,7 +92,7 @@ class Solution:
 
 
 # Version 3 addition_mul record what part we are missing
-class Solution:
+class Solution3:
     """
     @param x {float}: the base number
     @param n {int}: the power number
@@ -139,7 +139,7 @@ class Solution:
             
         return res * addition_mul
 
-class Solution:
+class Solution4:
     """
     @param x {float}: the base number
     @param n {int}: the power number

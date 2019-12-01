@@ -36,7 +36,7 @@ class Solution:
                 cur_res.pop()
                 self.visited[i] = 0
 
-    
+class Solution2:   
     """
     [non-recursive]
     1 2 3
@@ -58,7 +58,7 @@ class Solution:
             
         while queue:
             size = len(queue)
-            for i in range(size):
+            for _ in range(size):
                 cur_list = queue.pop()
                 if len(cur_list) == len(nums): 
                     res.append(cur_list)

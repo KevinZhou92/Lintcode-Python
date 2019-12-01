@@ -1,16 +1,15 @@
+"""
+=> DFS
+1 2 2 
+# #  
+"""
 import copy
 class Solution:
     """
     @param: :  A list of integers
     @return: A list of unique permutations
     """
-    
-    """
-    [DFS]
-    1 2 2 
-    # #
-        
-    """
+
     def permuteUnique(self, nums):
         # write your code here
         if not nums:
@@ -36,16 +35,16 @@ class Solution:
                 self.dfs(nums, copy.copy(cur_list))
                 cur_list.pop()
                 self.visited[i] = False
-    """    
-    [BFS]
-    1 2 2 
-    # #
+"""    
+=> BFS
+1 2 2 
+# #
 
-    The trick is to put remainning elements with current value in to the queue,
-    when adding next elements to the queue, we make sure that we don't add duplicate
-    element to the same position
-    """        
-
+The trick is to put remainning elements with current value in to the queue,
+when adding next elements to the queue, we make sure that we don't add duplicate
+element to the same position
+"""        
+class Solution2:
     def permuteUnique(self, nums):
         # write your code here
         if not nums:

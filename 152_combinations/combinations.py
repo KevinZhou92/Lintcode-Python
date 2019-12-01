@@ -1,5 +1,5 @@
 """
-- DFS
+=> DFS
 n = 3, k = 2
 everytime put a new number in to list, and next time search in [num + 1, n]
 for num in (start, n + 1):
@@ -39,11 +39,11 @@ class Solution:
             
 
 """
-- BFS
+=> BFS
 """
 import copy
 from collections import deque
-class Solution:
+class Solution2:
     """
     @param n: Given the range of numbers
     @param k: Given the numbers of combinations

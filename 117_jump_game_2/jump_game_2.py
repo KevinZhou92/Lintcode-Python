@@ -1,12 +1,12 @@
+"""
+=> Greedy
+2 3 1 1 4
+Greedy method for python, get maxJmp lenght at every jump, if it reaches len(A) return num of jumps.
+"""
 class Solution:
     """
     @param A: A list of integers
     @return: An integer
-    """
-    
-    """
-    2 3 1 1 4
-    Greedy method for python, get maxJmp lenght at every jump, if it reaches len(A) return num of jumps.
     """
     def jump(self, A):
         # write your code here
@@ -31,9 +31,11 @@ class Solution:
         
         return jump_count + 1
 
-
-
-    # Dynamic Programming
+"""
+=> Dynamic Programming
+"""
+class Solution2:
+    
     def jump(self, A):
         # write your code here
         

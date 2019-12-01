@@ -61,7 +61,7 @@ class Solution:
         return True
                   
 """
-- BFS Non-recursive
+=> BFS Non-recursive
 
 enque board into queue
 every loop add a queen to all board in queue
@@ -69,7 +69,7 @@ get the result
 """ 
 from collections import deque
 import copy
-class Solution:
+class Solution2:
     """
     @param: n: The number of queens
     @return: All distinct solutions
@@ -87,7 +87,7 @@ class Solution:
         queen_count = n
         while queen_count > 0:
             size = len(queue)
-            for i in range(size):
+            for _ in range(size):
                 cur_board = queue.popleft()
                 for j in range(n):
                     col = j
@@ -127,7 +127,7 @@ class Solution:
         
 
 """
-- Top-Down DFS
+=> Top-Down DFS
 We don't need to store an entire board, we just need to store the information of Q and reconstruct the board once we are done
 
 We use a list to record the queen's col pos in each row, it will be a list like
@@ -136,7 +136,7 @@ We use a list to record the queen's col pos in each row, it will be a list like
 
 """
 import copy
-class Solution:
+class Solution3:
     """
     @param: n: The number of queens
     @return: All distinct solutions
@@ -188,7 +188,7 @@ class Solution:
         return res
         
 """
-- Bottom-Up DFS
+=> Bottom-Up DFS
 We don't need to store an entire board, we just need to store the information of Q and reconstruct the board once we are done
 
 We use a list to record the queen's col pos in each row, it will be a list like
@@ -197,7 +197,7 @@ We use a list to record the queen's col pos in each row, it will be a list like
 
 """
 import copy
-class Solution:
+class Solution4:
     """
     @param: n: The number of queens
     @return: All distinct solutions
