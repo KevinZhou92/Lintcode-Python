@@ -51,4 +51,54 @@ class Solution:
             
         return res
         
+"""
+DFS Top-Down
+every time, calculate an interval with maximum sum, and dfs for rest k - 1
+use memorization to reduce time
+
+dfs(nums, k, start_index, cur_sum)
+
+            [-4,5,-4,5]
+local_min    -4,-4
+local_max    -4 5
+"""
+class Solution2:
+    """
+    @param nums: A list of integers
+    @param k: An integer denote to find k non-overlapping subarrays
+    @return: An integer denote the sum of max k non-overlapping subarrays
+    """
+    def maxSubArray(self, nums, k):
+        # write your code here
+        if k > len(nums) or k <= 0 or not nums:
+            return 0
         
+        self.sum_map = {}
+        res = self.dfs(nums, k, 0)
+        print(self.sum_map)
+        return res 
+        
+    def dfs(self, nums, count, start_index):
+        if (start_index, count) in self.sum_map:
+            return self.sum_map[(start_index, count)]
+            
+        if count > len(nums) - start_index:
+            return -sys.maxsize
+            
+        if count == 0:
+            return 0
+            
+        res = -sys.maxsize
+        tmp_res = -sys.maxsize
+        local_sum = 0
+        for i in range(start_index, len(nums)):
+            if local_sum + nums[i] <= nums[i]:
+                local_sum = nums[i]
+            else:
+                local_sum += nums[i]
+            
+            tmp_res = self.dfs(nums, count - 1, i + 1)
+            res = max(res, tmp_res + local_sum)
+            
+        self.sum_map[(start_index, count)] = res
+        return res       
