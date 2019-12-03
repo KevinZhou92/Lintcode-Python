@@ -102,3 +102,61 @@ class Solution2:
             
         self.sum_map[(start_index, count)] = res
         return res       
+
+class WrongSolution:
+    """
+    @param nums: A list of integers
+    @param k: An integer denote to find k non-overlapping subarrays
+    @return: An integer denote the sum of max k non-overlapping subarrays
+    """
+    def maxSubArray(self, nums, k):
+        # write your code here
+        if k > len(nums) or k <= 0 or not nums:
+            return 0
+        
+        self.sum_map = {}
+        res = self.dfs(nums, k, 0, 0)
+        
+        return res 
+        
+    def dfs(self, nums, count, start_index, cur_sum):
+        if (start_index, count) in self.sum_map:
+            return self.sum_map[(start_index, count)]
+            
+        if count > len(nums) - start_index:
+            return -sys.maxsize
+            
+        if count == 0:
+            return cur_sum
+            
+        res = -sys.maxsize
+        tmp_res = -sys.maxsize
+        local_sum = 0
+        for i in range(start_index, len(nums)):
+            if local_sum + nums[i] <= nums[i]:
+                local_sum = nums[i]
+            else:
+                local_sum += nums[i]
+            
+            # this step is wrong, for example, [-7,1,-1,-3,-4,-10,2,-100,-51,-12]
+            # notice dfs always search along a path until not available
+            # assume we need to pick 4 subarray, the dfs search will get result for start_index = 4,
+            # count = 1 as -7, the execution is like
+            # start_index count picked cur_sum
+            #  0           4     -7      -7
+            #  1           3     1       -6
+            # loop within start_index = 2, count = 2
+            #  2           2     -1      -7
+            #  3           2     -3      -9
+            #  4           1     2       -7
+            # so the maximum value for start_index = 7, count = 2 is -7, which is wrong,
+            # when we write dfs search to find optimum value for a subproblem, we should not pass in 
+            # a value from a bigger state, instead, we prefer a bottom-up solution
+            
+
+            tmp_res = self.dfs(nums, count - 1, i + 1, cur_sum + local_sum)
+            res = max(res, tmp_res)
+            
+        self.sum_map[(start_index, count)] = res
+        
+        return res
