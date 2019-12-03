@@ -149,9 +149,9 @@ class WrongSolution:
             #  2           2     -1      -7
             #  3           2     -3      -9
             #  4           1     2       -7
-            # so the maximum value for start_index = 7, count = 2 is -7, which is wrong,
+            # so the maximum value for start_index = 7, count = 2 is -7, which is wrong, the correct value should be 2.
             # when we write dfs search to find optimum value for a subproblem, we should not pass in 
-            # a value from a bigger state, instead, we prefer a bottom-up solution
+            # a value from a bigger state, instead, we should use a bottom-up solution
             
 
             tmp_res = self.dfs(nums, count - 1, i + 1, cur_sum + local_sum)
