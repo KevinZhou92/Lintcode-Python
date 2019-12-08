@@ -29,7 +29,7 @@ class Solution:
         dummy.next = head
         head = dummy
         
-        for i in range(m - 1):
+        for _ in range(m - 1):
             head = head.next
         
         prev_m_node = head
