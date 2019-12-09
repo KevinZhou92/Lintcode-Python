@@ -1,7 +1,7 @@
 '''
 => Binary Seach
 [4, 5, 1, 2, 3]
-figure out if left or right sequence is a sorted sequence
+figure out if left or right sequence is a sorted sequence and rule out only sorted sequence
 !!! Make sure we always exclude a sorted sequence, if target is not in sorted sequence, we then 
 search the rest part
 '''
