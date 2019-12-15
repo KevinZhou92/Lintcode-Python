@@ -32,3 +32,5 @@ class Solution:
             return True
         
         return False
+# Time: Average O(nlogn) Worst O(n)
+# Space: O(1)
