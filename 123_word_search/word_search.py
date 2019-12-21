@@ -69,3 +69,5 @@ class Solution:
             return False
             
         return True
+
+# Time: O(m * n * 4^n), m is the length of the board and n is the width of the board and n is the average length of the word

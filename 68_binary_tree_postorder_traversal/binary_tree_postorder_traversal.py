@@ -24,6 +24,7 @@ class Solution:
 
 '''
 => Non-recursive
+In non-recursive postorder traversal, we should not directly pop the current root node, because after iterating the right subtree, we still 
 '''        
 """
 Definition of TreeNode:
@@ -32,7 +33,6 @@ class TreeNode:
         self.val = val
         self.left, self.right = None, None
 """
-
 class Solution2:
     """
     @param root: A Tree
