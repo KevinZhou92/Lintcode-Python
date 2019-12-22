@@ -1,5 +1,8 @@
 '''
+=> DFS
 find entry in map, search continuously
+Time: O(m * n * 4^l), m is the length of the board and n is the width of the board and l is the average length of the word
+Space: O(l)
 '''
 class Solution:
     """
@@ -70,4 +73,3 @@ class Solution:
             
         return True
 
-# Time: O(m * n * 4^n), m is the length of the board and n is the width of the board and n is the average length of the word
