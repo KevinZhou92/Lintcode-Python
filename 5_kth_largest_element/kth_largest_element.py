@@ -2,6 +2,11 @@
 => Quick Select
 Recursive
 Time: O(n)
+Explanation:
+T(n) = n + T(n/2)
+T(n/2) = n/2 + T(n/4)
+...
+T(n) = n + n/2 + n/4 + n/8 + ... + 2 + 1 = 2n = O(n)
 '''
 class Solution:
     """
