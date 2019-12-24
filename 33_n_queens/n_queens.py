@@ -1,21 +1,12 @@
+'''
+Time: O(n^n)
+'''
 import copy
 class Solution:
     """
     @param: n: The number of queens
     @return: All distinct solutions
-    """
-    
-    """
-    dfs search for all result, if n queens can be places, save the result
-    for placing 1 queen, we need to test if cur pos is a valid pos
-    
-    for each row, we check all n positions, if either one is valid, we record current result and put queen into corresponding position
-    
-    XXX
-    XOX
-    XXX
-    """
-    
+    """    
     def solveNQueens(self, n):
         # write your code here
         if n == 0:
@@ -256,3 +247,52 @@ class Solution4:
             res.append(tmp_res)
             
         return res
+
+'''
+=> Bottom-up DFS
+'''
+import copy
+class Solution5:
+    """
+    @param: n: The number of queens
+    @return: All distinct solutions
+    """
+    def solveNQueens(self, n):
+        # write your code here
+        res = self.dfs(n, 0)
+        boards = []
+        for cols in res:
+            boards.append(self.build_res(n, cols))
+        
+        return boards
+        
+    def dfs(self, n, row):
+        res = []
+        if row == n:
+            return [[]]
+    
+        results = self.dfs(n, row + 1)
+        for tmp_res in results:
+            for i in range(n):
+                if self.valid(n, row, i, tmp_res):
+                    tmp_copy = [i] + copy.copy(tmp_res)
+                    res.append(tmp_copy)
+        return res
+                
+        
+    def valid(self, n, row_index, col_index, cols):
+        if col_index in cols:
+            return False
+            
+        for row, col in enumerate(cols):
+            if abs(row + 1) == abs(col - col_index):
+                return False
+                
+        return True
+
+    def build_res(self, n, cols):
+        res = []
+        
+        for col in cols:
+            res.append(''.join(['Q' if i == col else '.' for i in range(len(cols))]))
+        return res 

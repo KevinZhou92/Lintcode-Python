@@ -25,7 +25,7 @@ class Solution:
 '''
 => Two Pointer Improved
 '''
-class Solution:
+class Solution2:
     """
     @param num: a string
     @return: true if a number is strobogrammatic or false
