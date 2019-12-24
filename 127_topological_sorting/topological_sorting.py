@@ -41,7 +41,7 @@ class Solution:
 '''
 => DFS
 '''
-class Solution:
+class Solution2:
     """
     @param: graph: A list of Directed graph node
     @return: Any topological order for the given graph.
