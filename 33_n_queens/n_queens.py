@@ -1,5 +1,6 @@
 '''
-Time: O(n^n)
+Time: O(n!)
+Space: O(n)
 '''
 import copy
 class Solution:
