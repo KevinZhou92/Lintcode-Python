@@ -1,8 +1,7 @@
 '''
 => DFS
-[1,2,3]
-start from each position
-add cur subset and keep searching
+Time: O(n*2^n)
+The number of recursive calls, T(n) satisfies the recurrence T(n) = T(n - 1) + T(n - 2) + ... + T(1) + T(0), which solves to T(n) = O(2^n). Since we spend O(n) time within a call, the time complexity is O(n2^n)
 '''
 import copy
 class Solution:
@@ -30,4 +29,4 @@ class Solution:
             self.res.append(copy.copy(tmp))
             self.dfs(nums, i + 1, tmp)
             tmp.pop()
-            
+
