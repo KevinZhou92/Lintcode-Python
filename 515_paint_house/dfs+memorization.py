@@ -19,13 +19,13 @@ class Solution:
         return self.dfs(costs, 0, -1, cols)
         
     def dfs(self, costs, cur_row, prev_col, cols):
-        res = sys.maxsize
         if (prev_col, cur_row) in self.cost_map:
             return self.cost_map[(prev_col, cur_row)]
         
         if cur_row == len(costs):
             return 0
-            
+        
+        res = sys.maxsize
         for i in range(cols):
             if i == prev_col:
                     continue
