@@ -1,7 +1,7 @@
 
 '''
 => Bottom-up DFS
-Time: O(n)
+Time: O(logn) worst O(n)
 Space: O(n)
 '''
 class Solution:
@@ -11,16 +11,16 @@ class Solution:
     """
     def maxDepth(self, root):
         # write your code here
-        return self.dfs(root, 0)
+        return self.dfs(root)
     
-    def dfs(self, root, depth):
+    def dfs(self, root):
         if not root:
-            return depth
+            return 0
         
-        left = self.dfs(root.left, depth + 1)
-        right = self.dfs(root.right, depth + 1)
+        left = self.dfs(root.left)
+        right = self.dfs(root.right)
         
-        return max(left, right)
+        return max(left, right) + 1  
 
 '''
 => Top-Down DFS
