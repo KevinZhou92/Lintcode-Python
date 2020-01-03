@@ -2,7 +2,7 @@
 def sortIntegers(A):
     quick_sort(A, 0, A.length-1)
 
-def quick_sort(A, start, end) {
+def quick_sort(A, start, end):
     if start >= end:
         return
     
