@@ -12,25 +12,27 @@ class Solution:
         # write your code here
         if not root:
             return []
+            
         res = []
-        self.traverse(root, target - root.val, [root.val], res)
+        self.dfs(root, target, [], res)
         
         return res
         
-    def traverse(self, root, target, path, res):
-        # exit condition: leaf node
+    def dfs(self, root, target, path, res):
+        if not root:
+            return
+    
         if not root.left and not root.right:
+            target -= root.val
+            path.append(root.val)
             if target == 0:
                 res.append(copy.copy(path))
-            return
-        
-        if root.left:
-            # backtrack
-            path.append(root.left.val)
-            self.traverse(root.left, target - root.left.val, path, res)
             path.pop()
             
-        if root.right:
-            path.append(root.right.val)
-            self.traverse(root.right, target - root.right.val, path, res)
-            path.pop()
+            return
+        
+        path.append(root.val)
+        target -= root.val
+        self.dfs(root.left, target, path, res)
+        self.dfs(root.right, target, path, res)
+        path.pop()
