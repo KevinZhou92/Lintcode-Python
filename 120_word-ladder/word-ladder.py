@@ -1,10 +1,12 @@
 '''
 => BFS
+Time: O(n*26L^2) where n is the total number of word and L is the length of word
 
 Note:
 When handle conversion betweeen list and str, must be aware of shallow copy and manipulation string 
 '''
 from collections import deque
+import copy
 class Solution:
     """
     @param: start: a string
@@ -37,7 +39,6 @@ class Solution:
         return 0
         
     def get_neighbors(self, word):
-        import copy
         word = list(word)
         neighbors = set()
         

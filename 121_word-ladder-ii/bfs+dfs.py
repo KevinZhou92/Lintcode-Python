@@ -1,5 +1,5 @@
 '''
-=> BFS + DFS
+=> BFS + DFS + Follow-up
 
 Note: BFS for generating distances for word transformation starting from startWord
 Do dfs from end because we want to avoid unnecessary search
@@ -10,6 +10,8 @@ end = 'c'
 dict = ['a', 'b', 'c]
 dfs start -> end, a could search to b and c
 dfs end -> start, c could only search to a
+
+Follow Up: can you output result in dictionary order?
 
 '''
 from collections import deque, defaultdict
@@ -26,35 +28,20 @@ class Solution:
         if not dict:
             return []
         
-        # get pos of each word
-        word_indices = self.get_word_indices(dict, start, end)
         # get possible transformations of each word
         dict = set(dict)
         dict.add(start)
         dict.add(end)
         word_map = self.get_word_map(dict)
-        distances = {}
-       # bfs
-        self.bfs(start, end, copy(dict), word_map, distances)
         
+        distances = {}
+        # bfs
+        self.bfs(start, end, copy(dict), word_map, distances)
         res = []
         # dfs(source, target, length, word_map, path, res)
         self.dfs(end, start, word_map, [end], res, distances)
-        
-        res.sort(key=lambda word_list: sum([word_indices[word] for word in word_list]))
-        
-        return res
     
-    def get_word_indices(self, words, start, end):
-        word_indices = {}
-        for index, word in enumerate(words):
-            if word not in word_indices:
-                word_indices[word] = index
-                
-        word_indices[start] = -1
-        word_indices[end] = -1
-        
-        return word_indices
+        return res
         
     def get_word_map(self, words):
         word_map = defaultdict(set)
@@ -80,7 +67,6 @@ class Solution:
     
     def bfs(self, start, end, word_set, word_map, distances):
         queue = deque([start]) # end
-        word_set -= set([start]) 
         distances[start] = 1
         length = 1
         while queue:
@@ -88,10 +74,9 @@ class Solution:
             length += 1
             for _ in range(size):
                 word = queue.popleft()
-                distances[word] = length
                 for neighbor in word_map[word]:
-                    if neighbor in word_set:
+                    if neighbor not in distances:
                         queue.append(neighbor)
-                        word_set -= set([neighbor])
+                        distances[neighbor] = length
                     
             
