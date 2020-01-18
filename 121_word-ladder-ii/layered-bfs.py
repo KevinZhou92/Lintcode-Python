@@ -26,7 +26,7 @@ class Solution:
                     return sorted(layers[end], key=lambda l: sum([word_indices[w] for w in l]))
                 for neighbor in word_map[word]:
                     if neighbor in dict:
-                        new_layers[neighbor] += [l + [neighbor] for l in laye[word]]
+                        new_layers[neighbor] += [l + [neighbor] for l in layers[word]]
             layers = new_layers
             dict -= set(new_layers.keys())
             
