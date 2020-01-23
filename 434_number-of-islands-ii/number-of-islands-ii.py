@@ -1,5 +1,8 @@
 '''
 => Union Find
+Time: O(n), where n is number of operators
+Space: O(m*n)
+
 1. add a new island, count + 1, check up, left, right, down
 2. return final count
 
