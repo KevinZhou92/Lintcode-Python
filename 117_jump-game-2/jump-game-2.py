@@ -1,6 +1,8 @@
 """
 => Greedy
-2 3 1 1 4
+
+Time: O(n)
+
 Greedy method for python, get maxJmp lenght at every jump, if it reaches len(A) return num of jumps.
 """
 class Solution:
